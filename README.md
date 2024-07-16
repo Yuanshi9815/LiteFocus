@@ -12,7 +12,7 @@
 
 <!-- </div> -->
 
-> **Video-Infinity: Distributed Long Video Generation**
+> **LiteFocus: Accelerated Diffusion Inference for Long Audio Synthesis**
 > <br>
 > Zhenxiong Tan, 
 > [Xinyin Ma](https://horseee.github.io), 
