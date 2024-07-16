@@ -36,9 +36,12 @@ pip3 install git+https://github.com/haoheliu/AudioLDM2.git
 ```
 
 
-## Usage Examples
+## Usage
+### Basic Usage
 ```diff
 from audioldm2 import text_to_audio, build_model
+import scipy
+
 + from litefocus import inject_lite_focus, disable_lite_focus
 
 model = build_model(model_name='audioldm2-full')
@@ -47,29 +50,49 @@ model = build_model(model_name='audioldm2-full')
 
 waveform = text_to_audio(
     latent_diffusion=model,
+    duration=40,
     text='Musical constellations twinkling in the night sky, forming a cosmic melody.',
 )
 
 scipy.io.wavfile.write("out.wav", rate=16000, data=waveform)
 ```
 
+### Disable LiteFocus
+```python
+disable_lite_focus(model)
+```
 
-### Config
-| Parameter                  | Description                            | Default Value |
-| -------------------------- | -------------------------------------- | ------------- |
-| `same_frequency_attention` | The list of GPU devices to use.        |               |
-| `sparse_attention`         | The path to save the generated videos. |               |
-| `sparse_ratio`             | The path to save the generated videos. |               |
-| `f_n`                      | The path to save the generated videos. |               |
 
+### Configuration
+```python
+config = {
+    'same_frequency': True,
+    'cross_frequency': True,
+    'sparse_ratio': 0.1
+}
+
+inject_lite_focus(model, config)
+```
+
+
+| Parameter         | Description                                                            | Default Value |
+| ----------------- | ---------------------------------------------------------------------- | ------------- |
+| `same_frequency`  | Enables attention to tokens sharing the same-frequency.                | `True`        |
+| `cross_frequency` | Enables attention to tokens in cross-frequency           compensation. | `True`        |
+| `sparse_ratio`    | Specifies the sparsity ratio for `cross_frequency`.                    | 0.1           |
+
+
+## To-Do
+- [x] AudioLDM2 Integration
+- [ ] Diffusers pipeline Integration
 
 ## Citation
 ```
 @article{
-  tan2024videoinf,
-  title={Video-Infinity: Distributed Long Video Generation},
-  author={Zhenxiong Tan, Xingyi Yang, Songhua Liu, and Xinchao Wang},
-  journal={arXiv preprint arXiv:2406.16260},
+  tan2024lite,
+  title={LiteFocus: Accelerated Diffusion Inference for Long Audio Synthesis},
+  author={Zhenxiong Tan, Xinyin Ma, Gongfan Fang, and Xinchao Wang},
+  journal={arXiv preprint arXiv:2407.10468},
   year={2024}
 }
 ```
