@@ -1,12 +1,16 @@
 
-<!-- <div align="center"> -->
+<div align="center">
 
-# LiteFocus
 
+
+# LiteFocus 
+
+<img src="assets/LOGO.jpg" height="128px" style="border-radius: 28px;"/>
+<br>
 <a href="https://arxiv.org/abs/2407.10468"><img src="https://img.shields.io/badge/ariXv-2407.10468-A42C25.svg" alt="arXiv"></a>
 <br>
 
-<!-- </div> -->
+</div>
 
 > **Video-Infinity: Distributed Long Video Generation**
 > <br>
