@@ -92,11 +92,11 @@ inject_lite_focus(model, config)
 
 ## Citation
 ```
-@article{
-  tan2024lite,
+@article{tan2024litefocus,
   title={LiteFocus: Accelerated Diffusion Inference for Long Audio Synthesis},
-  author={Zhenxiong Tan, Xinyin Ma, Gongfan Fang, and Xinchao Wang},
-  journal={arXiv preprint arXiv:2407.10468},
+  author={Tan, Zhenxiong and Ma, Xinyin and Fang, Gongfan and Wang, Xinchao},
+  booktitle={Proc. Interspeech 2024},
+  pages={4878--4882},
   year={2024}
 }
 ```
